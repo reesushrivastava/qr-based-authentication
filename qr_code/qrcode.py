@@ -1,12 +1,19 @@
 import qrcode
 import cv2
+import random
+from datetime import datetime
+import string
 from db import *
 import tkinter as tk
 from tkinter import messagebox, filedialog, simpledialog
 from PIL import Image
 
 def getRandomId():
-    return "i127dhryuridu98ufmoid-123"
+    let = ''.join(random.choices(string.ascii_letters, k=5))
+    cdt = datetime.now().strftime('%y%m%d%H%M%S')
+    let1 = ''.join(random.choices(string.ascii_letters+string.digits, k=5))
+    id = let+cdt+let1
+    return id
 
 def create_qr_code():
     data = getRandomId()
